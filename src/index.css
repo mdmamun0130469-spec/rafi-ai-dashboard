@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #020817;
+  --panel: rgba(15, 23, 42, 0.75);
+  --panel-strong: rgba(15, 23, 42, 0.95);
+  --line: rgba(103, 232, 249, 0.2);
+  --cyan: #22d3ee;
+  --violet: #8b5cf6;
+  --green: #34d399;
+  --rose: #fb7185;
+  --amber: #fbbf24;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root {
+  margin: 0;
+  min-height: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at top, rgba(34, 211, 238, 0.12), transparent 25%),
+    radial-gradient(circle at bottom right, rgba(139, 92, 246, 0.12), transparent 25%),
+    var(--bg);
+  color: #e2e8f0;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  overflow: hidden;
+}
+
+button, input, textarea {
+  font: inherit;
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+
+.glass {
+  background: rgba(15, 23, 42, 0.72);
+  border: 1px solid rgba(103, 232, 249, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 0 40px rgba(34, 211, 238, 0.08);
+}
+
+.neon-border {
+  box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.25), 0 0 24px rgba(34, 211, 238, 0.1);
+}
+
+.reactor {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  background: radial-gradient(circle, rgba(34,211,238,.15), rgba(15,23,42,.95));
+  border: 1px solid rgba(34,211,238,.4);
+  overflow: hidden;
+}
+
+.reactor::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.reactor-listening {
+  box-shadow: 0 0 30px rgba(251, 113, 133, 0.45), inset 0 0 30px rgba(251, 113, 133, 0.15);
+  border-color: rgba(251, 113, 133, 0.8);
+}
+
+.reactor-speaking {
+  box-shadow: 0 0 30px rgba(52, 211, 153, 0.48), inset 0 0 30px rgba(52, 211, 153, 0.15);
+  border-color: rgba(52, 211, 153, 0.8);
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.04); }
+}
+
+.scroll-thin::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scroll-thin::-webkit-scrollbar-thumb {
+  background: rgba(103, 232, 249, 0.2);
+  border-radius: 9999px;
+}
+
+textarea, input, button {
+  transition: all 0.2s ease;
+}
+
+.app-shell {
+  height: 100vh;
+  padding: 16px;
+}
+
+@media (max-width: 1200px) {
+  body { overflow: auto; }
+  .app-shell { height: auto; min-height: 100vh; }
+}
